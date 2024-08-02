@@ -10,8 +10,8 @@ function calculatePrice() {
     }
 
                 // 设定参考价格范围
-            const minPrice = totalCost * 0.7;
-            const maxPrice = totalCost * 1.5;
+            let minPrice = totalCost * 0.7;
+            let maxPrice = totalCost * 1.5;
 
     document.getElementById('result').textContent = `总报价: ${totalCost}元`;
     document.getElementById('result').style.display = 'block';
