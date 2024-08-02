@@ -12,6 +12,10 @@ function calculatePrice() {
     let minPrice = totalCost * 0.7;
     let maxPrice = totalCost * 1.5;
 
+        if (minPrice < 300) {
+        minPrice = 300;
+    }
+
     const resultElement = document.getElementById('result');
     if (resultElement) {
         resultElement.textContent = `总报价: ${totalCost}元`;
