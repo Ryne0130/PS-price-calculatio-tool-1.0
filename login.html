@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Login Page for PS Brochure and Flyer Quoting</title>
     <style>
         body, html {
             height: 100%;
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: #f0f0f0;
         }
+
         .login-container {
             text-align: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+
+        .login-title {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
         #password {
             margin-bottom: 20px;
         }
+
         .btn-blue {
             background-color: #007bff;
             color: white;
@@ -27,6 +43,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .error-message {
             color: red;
         }
@@ -34,10 +51,14 @@
 </head>
 <body>
     <div class="login-container">
-        <input type="password" id="password" placeholder="Enter Password">
-        <button class="btn-blue" onclick="checkPassword()">Login</button>
-        <p id="error-message" class="error-message" style="display:none;"></p>
+        <div class="login-title">ps 画册、宣传册报价</div>
+        <!-- 假设这里添加一些登录表单的HTML -->
+        <input type="password" id="password" placeholder="Password">
+        <button class="btn-blue">登录</button>
+        <!-- 如果需要，可以添加错误消息 -->
+        <!-- <div class="error-message">错误消息</div> -->
     </div>
+
 
     <script>
         function checkPassword() {
