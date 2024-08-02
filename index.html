@@ -1,46 +1,65 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PS 画册、宣传册报价</title>
-    <script src="quote.js" defer></script>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        #copyButton {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>PS 画册、宣传册报价工具</h1>
-    <form id="quoteForm">
-        <label for="designLevel">设计水平:</label>
+    <div class="container">
+        <h1>PS 画册、宣传册报价</h1>
+        <label for="designLevel">设计级别:</label>
         <select id="designLevel">
-            <option value="10">简单设计</option>
-            <option value="15">一般设计</option>
-            <option value="20">标准设计</option>
-            <option value="35">精美设计</option>
-            <option value="50">高端设计</option>
-            <option value="150">页首席设计</option>
+            <option value="10">简单设计 - 10元/页</option>
+            <option value="15">一般设计 - 15元/页</option>
+            <option value="20">标准设计 - 20元/页</option>
+            <option value="35">精美设计 - 35元/页</option>
+            <option value="50">高端设计 - 50元/页</option>
+            <option value="150">页首席设计 - 150元/页</option>
         </select>
-        <br>
-        <label for="pages">页数:</label>
-        <input type="number" id="pages" min="1" placeholder="请输入页数">
-        <br>
-        <label for="imageEdit">抠图/P图数量:</label>
-        <select id="imageEdit">
+
+        <label for="pageCount">页数:</label>
+        <input type="number" id="pageCount" placeholder="输入页数">
+
+        <label for="photoEditing">抠图/P图数量:</label>
+        <select id="photoEditing">
             <option value="0">不需要</option>
-            <option value="5">很简单</option>
-            <option value="10">普通</option>
-            <option value="20">一般</option>
-            <option value="30">精美</option>
+            <option value="5">很简单 - 5元/个</option>
+            <option value="10">普通 - 10元/个</option>
+            <option value="20">一般 - 20元/个</option>
+            <option value="30">精美 - 30元/个</option>
         </select>
-        <br>
-        <label for="deadline">完成时间:</label>
-        <select id="deadline">
+
+        <label for="deliveryTime">完成时间:</label>
+        <select id="deliveryTime">
             <option value="0">3天后</option>
             <option value="10">3天内 +10</option>
             <option value="30">24小时内 +30</option>
             <option value="50">12小时内 +50</option>
         </select>
-        <br>
-        <button type="button" onclick="calculateQuote()">计算报价</button>
-        <p>总价: <span id="totalPrice">300 元起</span></p>
-    </form>
+
+        <button onclick="calculatePrice()">计算报价</button>
+
+        <div id="result"></div>
+        <button id="copyButton" onclick="copyPrice()" style="display:none;">复制价格</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
