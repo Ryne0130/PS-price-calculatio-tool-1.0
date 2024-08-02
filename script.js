@@ -4,6 +4,13 @@ function calculatePrice() {
     let photoEditingCost = parseInt(document.getElementById('photoEditing').value, 10) || 0;
     let deliveryCost = parseInt(document.getElementById('deliveryTime').value, 10) || 0;
 
+    // 验证 pageCount 是否为有效数字
+    if (!pageCount || isNaN(pageCount = parseInt(pageCount, 10))) {
+        alert('请先填写页数，且只能填数字');
+        return; // 阻止进一步执行
+    }
+
+    
     let totalCost = (designCost * pageCount) + (designCost * photoEditingCost) + deliveryCost;
     if (totalCost < 300) {
         totalCost = 300;
