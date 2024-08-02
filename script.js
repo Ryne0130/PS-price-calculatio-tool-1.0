@@ -25,7 +25,7 @@ function calculatePrice() {
 
     const arrangeElement = document.getElementById('arrange');
     if (arrangeElement) {
-        arrangeElement.textContent = `参考价格范围: ${minPrice}&#126;${maxPrice}元`;
+        arrangeElement.textContent = `参考价格范围: ${minPrice}~${maxPrice}元`;
         arrangeElement.style.display = 'block';
     }
 }
