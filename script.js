@@ -4,7 +4,7 @@ function calculatePrice() {
     let photoEditingCost = parseInt(document.getElementById('photoEditing').value) || 0;
     let deliveryCost = parseInt(document.getElementById('deliveryTime').value) || 0;
 
-    let totalCost = (designCost * pageCount) + photoEditingCost + deliveryCost;
+    let totalCost = (designCost * pageCount) + (designCost *photoEditingCost) + deliveryCost;
     if (totalCost < 300) {
         totalCost = 300; // 价格至少要300元
     }
