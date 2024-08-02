@@ -1,22 +1,24 @@
 function calculatePrice() {
-    const designCost = document.getElementById('designLevel').value;
-    const pageCount = parseInt(document.getElementById('pageCount').value) || 0;
-    const editingCost = document.getElementById('photoEditing').value;
-    const editingQuantity = editingCost > 0 ? 1 : 0; // 假设用户选择一个抠图级别就默认为1个
-    const deliveryCost = document.getElementById('deliveryTime').value;
-    
-    let basePrice = designCost * pageCount;
-    let totalPrice = basePrice + editingCost * editingQuantity + deliveryCost;
-    
-    // 设定最低价格
-    if (totalPrice < 300) {
-        totalPrice = 300;
+    let designCost = parseInt(document.getElementById('designLevel').value);
+    let pageCount = parseInt(document.getElementById('pageCount').value) || 0;
+    let photoEditingCost = parseInt(document.getElementById('photoEditing').value) || 0;
+    let deliveryCost = parseInt(document.getElementById('deliveryTime').value) || 0;
+
+    let totalCost = (designCost * pageCount) + photoEditingCost + deliveryCost;
+    if (totalCost < 300) {
+        totalCost = 300; // 价格至少要300元
     }
 
-    const resultDiv = document.getElementById('result');
-    resultDiv.style.display = 'block';
-    resultDiv.textContent = `总报价: ${totalPrice}元`;
+    document.getElementById('result').textContent = `总报价: ${totalCost}元`;
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('copyButton').style.display = 'block';
+}
 
-    const copyButton = document.getElementById('copyButton');
-    copyButton.style.display = 'inline-block';
+function copyPrice() {
+    let price = document.getElementById('result').textContent.trim().split(': ')[1];
+    navigator.clipboard.writeText(price).then(() => {
+        alert('价格已复制到剪贴板');
+    }).catch(err => {
+        console.error('无法复制价格', err);
+    });
 }
