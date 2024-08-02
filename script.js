@@ -11,7 +11,7 @@ function calculatePrice() {
     }
 
     
-    let totalCost = (designCost * pageCount) + (designCost * photoEditingCost) + deliveryCost;
+    let totalCost = (designCost * pageCount) + (pageCount * photoEditingCost) + deliveryCost;
     if (totalCost < 300) {
         totalCost = 300;
     }
