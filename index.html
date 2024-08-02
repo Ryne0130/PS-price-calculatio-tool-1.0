@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>画册/宣传册报价工具</title>
+<script src="script.js" defer></script>
+</head>
+<body>
+    <h1>画册/宣传册报价工具</h1>
+    <form id="quoteForm">
+        <label for="designLevel">设计水平:</label>
+        <select id="designLevel">
+            <option value="simple">简单设计 (10元/页)</option>
+            <option value="general">一般设计 (15元/页)</option>
+            <option value="standard">标准设计 (20元/页)</option>
+            <option value="fine">精美设计 (35元/页)</option>
+            <option value="premium">高端设计 (50元/页)</option>
+            <option value="chief">页首席设计 (150元/页)</option>
+        </select>
+
+        <label for="numOfPages">页数:</label>
+        <input type="number" id="numOfPages" placeholder="请输入页数">
+
+        <label for="imageEdit">是否需要抠图/P图:</label>
+        <select id="imageEdit">
+            <option value="0">不需要</option>
+            <option value="easy">很简单 (5元/个)</option>
+            <option value="normal">普通 (10元/个)</option>
+            <option value="general">一般 (20元/个)</option>
+            <option value="fine">精美 (30元/个)</option>
+        </select>
+
+        <label for="numOfEdits">抠图/P图数量:</label>
+        <input type="number" id="numOfEdits" placeholder="请输入数量" disabled>
+
+        <label for="deadline">截止时间:</label>
+        <select id="deadline">
+            <option value="0">3天后不加</option>
+            <option value="10">3天内+10</option>
+            <option value="30">24小时内+30</option>
+            <option value="50">12小时内+50</option>
+        </select>
+
+        <button type="button" onclick="calculateQuote()">计算报价</button>
+
+        <p>总报价: <span id="totalQuote">300</span> 元</p>
+    </form>
+</body>
+</html>
